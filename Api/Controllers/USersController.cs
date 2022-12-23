@@ -1,14 +1,14 @@
 ﻿using Api.Data;
 using Api.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class USersController : ControllerBase
+   [Authorize]
+    public class USersController : BaseApiController
     {
         private readonly DattingContext _context;
 
