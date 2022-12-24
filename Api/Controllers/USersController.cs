@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Api.Controllers
 {
-   [Authorize]
+  // [Authorize]
     public class USersController : BaseApiController
     {
         private readonly DattingContext _context;
