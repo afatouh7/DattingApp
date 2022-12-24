@@ -15,5 +15,5 @@ import{ToastrModule} from 'ngx-toastr'
     ToastrModule
   ]
 
-})
+}) 
 export class SharedModule { }
