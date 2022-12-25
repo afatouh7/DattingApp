@@ -1,4 +1,5 @@
 using Api.Data;
+using Api.Helper;
 using Api.Interfaces;
 using Api.Middleware;
 using Api.Services;
@@ -18,10 +19,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly); 
 builder.Services.AddDbContext<DattingContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddCors();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
     opt.TokenValidationParameters = new TokenValidationParameters
