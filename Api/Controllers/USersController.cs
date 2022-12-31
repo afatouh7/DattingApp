@@ -30,15 +30,16 @@ namespace Api.Controllers
             //var usersToReturn = _mapper.Map<IEnumerable<MemeberDto>>(users);
             return Ok(users);
         }
-        [HttpGet("{id}")]
-        public async Task<ActionResult<MemeberDto>> GetUserById(int id)
-        {
-            var user = await _repository.GetUserByIdAsync(id);
-            var rertunuser = _mapper.Map<MemeberDto>(user);
-            return Ok(rertunuser);
-        }
-        [HttpGet("username")]
-        public async Task<ActionResult<AppUser>> GetUserByUsername(string username)
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<MemeberDto>> GetUserById(int id)
+        //{
+        //    var user = await _repository.GetUserByIdAsync(id);
+        //    var rertunuser = _mapper.Map<MemeberDto>(user);
+        //    return Ok(rertunuser);
+        //} 
+
+        [HttpGet("{username}")]
+        public async Task<ActionResult<AppUser>> GetUserByUsername( string username)
         {
             var user = await _repository.GetMemberAsync(username);
             //var rertunuser = _mapper.Map<MemeberDto>(user);
